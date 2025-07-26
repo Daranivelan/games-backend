@@ -1,0 +1,18 @@
+import e, { Router } from "express";
+import {
+  getReview,
+  addReview,
+  deleteReview,
+  updateReview,
+} from "../controllers/review.controller";
+import { authMiddleware } from "../middleware/auth";
+
+const router = Router();
+router.use(authMiddleware);
+
+router.get("/:gameId", getReview);
+router.post("/:gameId", addReview);
+router.delete("/:id", deleteReview);
+router.put("/:id", updateReview);
+
+export default router;
