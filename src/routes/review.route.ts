@@ -12,7 +12,7 @@ router.use(authMiddleware);
 
 router.get("/:gameId", getReview);
 router.post("/:gameId", addReview);
-router.delete("/:id", deleteReview);
-router.put("/:id", updateReview);
+router.delete("/:reviewId", deleteReview);
+router.put("/:reviewId", updateReview);
 
 export default router;
