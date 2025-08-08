@@ -4,10 +4,12 @@ export type User = {
   _id: string;
   username: string;
   email: string;
-  password: string;
+  password?: string;
   createdAt: Date;
 };
 
-export interface AuthenticatedRequest extends Request {
-  user?: Omit<User, "password">;
+declare module "express-serve-static-core" {
+  interface Request {
+    user?: Omit<User, "password">;
+  }
 }

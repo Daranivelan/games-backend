@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import { AuthenticatedRequest, User } from "../types/auth";
+import { User } from "../types/auth";
 
 dotenv.config();
 const KEY = process.env.JWT_SECRET as string;
 
 export const authMiddleware = (
-  req: AuthenticatedRequest, // initially empty user = null
+  req: Request, // initially empty user = null
   res: Response,
   next: NextFunction
 ) => {
