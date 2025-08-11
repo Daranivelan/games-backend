@@ -21,6 +21,11 @@ app.use(cors());
 
 app.use(express.json());
 
+app.use(async (_req, _res, next) => {
+  await connectDB();
+  next();
+});
+
 // app.use("/", (req, res) => {
 //   res.send("Hello from games backend");
 // });
