@@ -7,6 +7,9 @@ import cartRoutes from "./routes/cart.route";
 import favRoutes from "./routes/fav.route";
 import cors from "cors";
 import { User as IUser } from "./types/auth";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 declare global {
   namespace Express {
@@ -19,7 +22,7 @@ declare global {
 const app = express();
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: [process.env.CLIENT_URL as string],
     allowedHeaders: "*",
     methods: "*",
   })
