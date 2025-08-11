@@ -21,9 +21,9 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use("/", (req, res) => {
-  res.send("Hello from games backend");
-});
+// app.use("/", (req, res) => {
+//   res.send("Hello from games backend");
+// });
 app.use("/api/auth", userRoutes);
 app.use("/api/review", reviewRoutes);
 app.use("/api/games", gameRoutes);
