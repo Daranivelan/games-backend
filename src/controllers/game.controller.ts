@@ -3,7 +3,7 @@ import { Game } from "../models/game.model";
 
 export const getGames = async (req: Request, res: Response) => {
   try {
-    const games = await Game.find().limit(10); // Fetch first 10 games
+    const games = await Game.find(); // Fetch first 10 games
 
     res.status(200).json({ data: games });
   } catch (error) {
