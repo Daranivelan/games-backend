@@ -22,7 +22,7 @@ declare global {
 const app = express();
 app.use(
   cors({
-    origin: [process.env.CLIENT_URL as string],
+    origin: ["https://games-frontend-six.vercel.app"],
     allowedHeaders: "*",
     methods: "*",
   })
