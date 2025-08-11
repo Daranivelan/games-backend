@@ -7,7 +7,6 @@ import cartRoutes from "./routes/cart.route";
 import favRoutes from "./routes/fav.route";
 import cors from "cors";
 import { User as IUser } from "./types/auth";
-import { VercelRequest, VercelResponse } from "@vercel/node";
 
 declare global {
   namespace Express {
@@ -31,11 +30,11 @@ app.use("/api/games", gameRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/favourites", favRoutes);
 
-// app.listen(3000, () => {
-//   connectDB();
-//   console.log("App is Running...!");
-// });
+if (process.env.NODE_ENV !== "production") {
+  app.listen(3000, () => {
+    connectDB();
+    console.log("App is Running...!");
+  });
+}
 
-export default (req: VercelRequest, res: VercelResponse) => {
-  app(req as any, res as any); // Express needs Node's req/res
-};
+export default app;
